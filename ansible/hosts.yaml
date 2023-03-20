@@ -1,0 +1,91 @@
+# Version 231403.a
+##############################################################
+# THIS IS THE 'MASTER' HOSTS.YAML FILE
+#
+# Be sure that the ansible.cfg files in any project 
+# subdirectory references to this 'MASTER' hosts.yaml located
+# the /home/netadmin/Dev/Scripts/lab23/ansible directory
+# 
+##############################################################
+
+
+---
+all:
+dc253:
+  children:
+    routers:
+      hosts:
+        dc253-rtr01:
+          ansible_host: 192.168.248.231
+        dc253-rtr02:
+          ansible_host: 192.168.248.232
+    firewalls:
+       hosts:
+        dc253-fw01:
+          ansible_host: 192.168.248.233
+        dc253-fw02:
+          ansible_host: 192.168.248.234
+    switches:
+      children:
+        core_switches:
+          hosts:
+            DC253-CSW01:
+              ansible_host: 192.168.248.235
+            DC253-CSW02:
+              ansible_host: 192.168.248.236
+        access_switches:
+          hosts:
+            DC253-ASW01:
+              ansible_host: 192.168.248.237
+            DC253-ASW02:
+              ansible_host: 192.168.248.238
+    oob_switches:
+      hosts:
+        dc253_oob01:
+          ansible_host: 192.168.248.241
+    f5s:
+      hosts:
+        DC253-F501:
+          ansible_host: 192.168.248.239
+        DC253-F502:
+          ansible_host: 192.168.248.240
+    spare_switches:
+      hosts:
+          SPARE-ASW01:
+            ansible_host: 192.168.248.221
+          SPARE-ASW02:
+            ansible_host: 192.168.248.222
+    spare_firewalls:
+      hosts:
+        SPARE-FW01:
+          ansible_host: 192.168.248.223
+        SPARE-FW02:
+          ansible_host: 192.168.248.224
+    spare_f5s:
+      hosts:
+        SPARE-F501:
+          ansible_host: 192.168.248.225
+        SPARE-F502:
+          ansible_host: 192.168.248.226
+    spare_gws:
+      hosts:
+        SPARE-GW01:
+          ansible_host: 192.168.248.227
+        SPARE_GW02:
+          ansible_host: 192.168.248.228
+
+
+
+  # vars:
+  #   ansible_connection: network_cli
+  #   ansible_network_os: ios
+  #   ansible_user: admin
+  #   ansible_ssh_pass: Automate23
+  #   ansible_become_password: automate23
+  #   snmp_trap_targets: 192.168.248.251
+  #   snmp_community: lab253
+  #   ntp_servers: 
+  #     - 10.30.11.10
+  #     - 10.20.11.10
+
+

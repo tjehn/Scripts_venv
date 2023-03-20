@@ -1,0 +1,4 @@
+provider:
+  ip_address: "{{ ansible_host: }}"
+  username: admin
+  password: Automate23
